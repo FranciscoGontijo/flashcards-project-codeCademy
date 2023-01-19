@@ -4,8 +4,7 @@ import { addQuizIdForTopic } from "../topics/topicsSlice";
 export const quizzesSlice = createSlice({
     name: 'quizzes',
     initialState: {
-        quizzes: {
-        }
+        quizzes: {}
     },
     reducers: {
         addQuiz: (state, action) => {
@@ -15,16 +14,14 @@ export const quizzesSlice = createSlice({
     }
 });
 
-export const addQuizForTopicId = (payload) => {
-    const { topicId, id } = payload;
+export const addQuizForTopicId = (quiz) => {
+    const { topicId, id } = quiz;
     return (dispatch) => {
         dispatch(quizzesSlice.actions.addQuiz(quiz));
-        dispatch(addQuizIdForTopic({ topicId: topicId, quizId: id}));
-    }
+        dispatch(addQuizIdForTopic({ topicId: topicId, quizId: id }));
+    };
 };
 
-export const { addQuiz } = quizzesSlice.actions;
-
 export const selectQuizzes = (state) => state.quizzes.quizzes;
-
+export const { addQuiz } = quizzesSlice.actions;
 export default quizzesSlice.reducer;
