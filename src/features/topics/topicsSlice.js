@@ -6,7 +6,7 @@ export const topicsSlice = createSlice({
         topics: {
         }
     },
-    reducer: {
+    reducers: {
         addTopics: (state, action) => {
             state.topics = {...state.topics, [action.payload.id]: {...payload, quizIds: []}};
         },
